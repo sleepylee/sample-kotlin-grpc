@@ -33,4 +33,4 @@ mvn -pl kotlin-grpc-user-service exec:java
 mvn -pl kotlin-grpc-client exec:java
 ```
 
-Origin fork from: @FlavioF
+Origin fork from: @FlavioF/kotlin-grpc-sample
