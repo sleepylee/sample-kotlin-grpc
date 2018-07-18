@@ -10,10 +10,8 @@ The user service must get data from the key value service to provide all informa
 * Maven
 
 ### About gRPC
-...
-
-### About Kotlin
-...
+Read here:
+https://developers.google.com/protocol-buffers/
 
 ## Try it
 
@@ -34,3 +32,5 @@ mvn -pl kotlin-grpc-user-service exec:java
 ```
 mvn -pl kotlin-grpc-client exec:java
 ```
+
+Origin fork from: @FlavioF
