@@ -15,22 +15,26 @@ class UserService(keyValue: KeyValueServiceKtStub) : UserServiceImplBase() {
 
     override fun getUser(request: UserRequest): Deferred<UserResponse> = async {
         fun getValue(key: String) = keyValue.get(
-                GetRequest
-                        .newBuilder()
-                        .setKey(request.name + key)
-                        .build() ?: throw IllegalArgumentException("key not found")
+            GetRequest
+                .newBuilder()
+                .setKey(request.passId.toString() + key)
+                .build() ?: throw IllegalArgumentException("key not found")
         )
 
+        val name = getValue(".name")
         val email = getValue(".email")
         val country = getValue(".country")
         val active = getValue(".active")
+        System.out.println("active = ${active.await().value}")
         UserResponse
-                .newBuilder()
-                .setName(request.name ?: throw IllegalArgumentException("name can not be null"))
-                .setEmailAddress(email.await().value)
-                .setCountry(country.await().value)
-                .setActive(active.await().value.toBoolean())
-                .build()
+            .newBuilder()
+            .setPassId(if (request.passId < 0)
+                throw IllegalArgumentException("name can not be null") else request.passId)
+            .setName(name.await().value)
+            .setActive(active.await().value.toBoolean())
+            .setEmailAddress(email.await().value)
+            .setCountry(country.await().value)
+            .build()
     }
 
 }

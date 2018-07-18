@@ -28,7 +28,7 @@
 
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jre8</artifactId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
@@ -54,7 +54,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>grpc.service.kv.GrpcServerKt</mainClass>
+                    <mainClass>grpc.service.kv.GrpcKeyValueServerKt</mainClass>
                 </configuration>
             </plugin>
         </plugins>

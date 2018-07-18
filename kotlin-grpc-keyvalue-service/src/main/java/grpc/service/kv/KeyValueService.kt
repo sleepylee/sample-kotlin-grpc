@@ -10,21 +10,26 @@ import services.PutResponse
 
 class KeyValueService : KeyValueServiceImplBase() {
 
-    val names = listOf("radha", "kanti", "chanda", "kali")
+    val ids = listOf(1, 2, 3, 5, 6)
+    val names = listOf("timon", "kante", "yo", "antoni")
 
     internal var store: MutableMap<String, String> = hashMapOf(
-            "${names[0]}.email" to "${names[0]}@gmail.com",
-            "${names[0]}.country" to "Portugal",
-            "${names[0]}.active" to "true",
-            "${names[1]}.email" to "${names[1]}@gmail.com",
-            "${names[1]}.country" to "France",
-            "${names[1]}.active" to "true",
-            "${names[2]}.email" to "${names[2]}@gmail.com",
-            "${names[2]}.country" to "Spain",
-            "${names[2]}.active" to "true",
-            "${names[3]}.email" to "${names[3]}@gmail.com",
-            "${names[3]}.country" to "UK",
-            "${names[3]}.active" to "false"
+            "${ids[0]}.name" to "${names[0]}",
+            "${ids[0]}.email" to "${names[0]}@gmail.com",
+            "${ids[0]}.country" to "US",
+            "${ids[0]}.active" to "true",
+            "${ids[1]}.name" to "${names[1]}",
+            "${ids[1]}.email" to "${names[1]}@hotmail.com",
+            "${ids[1]}.country" to "France",
+            "${ids[1]}.active" to "true",
+            "${ids[2]}.name" to "${names[2]}",
+            "${ids[2]}.email" to "${names[2]}@gmail.com",
+            "${ids[2]}.country" to "Columbia",
+            "${ids[2]}.active" to "false",
+            "${ids[3]}.name" to "${names[3]}",
+            "${ids[3]}.email" to "${names[3]}@gmail.com",
+            "${ids[3]}.country" to "Vietnam",
+            "${ids[3]}.active" to "false"
     )
 
     override fun put(request: PutRequest): Deferred<PutResponse> = async {
